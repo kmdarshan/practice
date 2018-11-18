@@ -2,6 +2,45 @@
 
 import UIKit
 
+class QueueUsingStacks {
+    
+    var inputStack:[Character] = []
+    var outputStack:[Character] = []
+
+    func enqueue(character: Character) -> Void {
+        while !inputStack.isEmpty {
+            let c = inputStack.removeLast()
+            outputStack.append(c)
+        }
+        inputStack.append(character)
+        while !outputStack.isEmpty {
+            let c = outputStack.removeLast()
+            inputStack.append(c)
+        }
+    }
+    
+    func dequeue() -> Character? {
+        return inputStack.removeLast()
+    }
+    
+    func addElementToQueue(_ newElement : Character) {
+        enqueue(character: newElement)
+    }
+    
+    func displayAllElementsInQueue() {
+        while !inputStack.isEmpty {
+            print(dequeue() as! Character)
+        }
+    }
+}
+
+var q = QueueUsingStacks()
+q.addElementToQueue("4")
+q.addElementToQueue("3")
+q.addElementToQueue("2")
+q.addElementToQueue("1")
+q.displayAllElementsInQueue()
+
 class BracketValidator {
     init() {
         
@@ -45,7 +84,7 @@ class BracketValidator {
             if(v != 0) {
                 result = false
             }
-            print(v)
+            //print(v)
         }
         return result
     }
@@ -130,11 +169,11 @@ node = bst.insert( node, value: 70)
 node = bst.insert( node, value: 60)
 node = bst.insert( node, value: 80)
 bst.inorderDisplay(node)
-if(bst.isBSTValid(node: node!)) {
-    print("Valid BST")
-} else {
-    print("InValid BST")
-}
+//if(bst.isBSTValid(node: node!)) {
+//    print("Valid BST")
+//} else {
+//    print("InValid BST")
+//}
 
 func reverseWordInPlace(_ str : inout String) -> Array<Character> {
     var characters = Array(str)
