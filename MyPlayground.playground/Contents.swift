@@ -2,6 +2,69 @@
 
 import UIKit
 
+class BracketValidator {
+    init() {
+        
+    }
+    static func validateUsingStack() -> Bool {
+        let input = "darshan"
+        let openersToClosers: [Character: Character] = ["(": ")","[": "]","{": "}"]
+        let closers = openersToClosers.values
+        let openers = openersToClosers.keys
+
+        var openersStack : [Character] = []
+        for character in input {
+            if openers.contains(character) {
+                openersStack.append(character)
+            } else if closers.contains(character) {
+                if openersStack.isEmpty {
+                    return false
+                } else {
+                    let lastUnclosedOpener = openersStack.removeLast()
+                    if openersToClosers[lastUnclosedOpener] != character {
+                        return false
+                    }
+                }
+            }
+        }
+        return openersStack.isEmpty
+    }
+    
+    static func validate(input : String) -> Bool {
+        var store = [String : Int]()
+        let characters = Array(input)
+        for c in characters {
+            if let val = store[String(c)] {
+                store[String(c)] = val - 1
+            } else {
+                store[String(c)] = 1
+            }
+        }
+        var result = true
+        for (_,v) in store {
+            if(v != 0) {
+                result = false
+            }
+            print(v)
+        }
+        return result
+    }
+}
+
+// address validation error is happening here
+//if(BracketValidator.validateUsingStack()) {
+//    print("true")
+//} else {
+//    print("false")
+//}
+
+public indirect enum BinaryTree<T> {
+    case node(BinaryTree<T>, T, BinaryTree<T>)
+    case empty
+}
+
+let root = BinaryTree.node(.empty, 10, .empty)
+
 class Node {
     var value : Int
     var lnode : Node? = nil
@@ -45,7 +108,7 @@ class BST {
         }
     }
     
-    func isBSTValid() -> Bool {
+    func isBSTValid(node : Node) -> Bool {
         bst.isTreeValid(node, values: BST.elements)
         for i in BST.elements {
             if(i+1 < BST.elements.count) {
@@ -66,8 +129,8 @@ node = bst.insert( node, value: 40)
 node = bst.insert( node, value: 70)
 node = bst.insert( node, value: 60)
 node = bst.insert( node, value: 80)
-//bst.inorderDisplay(node)
-if(bst.isBSTValid()) {
+bst.inorderDisplay(node)
+if(bst.isBSTValid(node: node!)) {
     print("Valid BST")
 } else {
     print("InValid BST")
