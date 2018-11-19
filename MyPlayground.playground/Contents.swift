@@ -2,6 +2,38 @@
 
 import UIKit
 
+struct MakeIterator:IteratorProtocol {
+    private var start : Int
+    private var end : Int
+    private var currentElement : Int
+    private let increment : Int = 1
+
+    init(start: Int, end: Int) {
+        self.start = start
+        self.end = end
+        self.currentElement = start - increment
+    }
+    
+    mutating func next() -> Int? {
+        if currentElement < self.end {
+            currentElement = currentElement + increment
+            return currentElement
+        }
+        return nil
+    }
+}
+
+struct MakeSequence: Sequence {
+    func makeIterator() -> MakeIterator {
+        return MakeIterator(start: 0, end: 5)
+    }
+}
+
+let sequence = MakeSequence()
+for number in sequence {
+    print(number)
+}
+
 class QueueUsingStacks {
     
     var inputStack:[Character] = []
@@ -19,8 +51,8 @@ class QueueUsingStacks {
         }
     }
     
-    func dequeue() -> Character? {
-        return inputStack.removeLast()
+    func dequeue() -> Character {
+        return inputStack.removeLast() as Character
     }
     
     func addElementToQueue(_ newElement : Character) {
@@ -29,7 +61,7 @@ class QueueUsingStacks {
     
     func displayAllElementsInQueue() {
         while !inputStack.isEmpty {
-            print(dequeue() as! Character)
+            print(dequeue() as Character)
         }
     }
 }
@@ -39,7 +71,7 @@ q.addElementToQueue("4")
 q.addElementToQueue("3")
 q.addElementToQueue("2")
 q.addElementToQueue("1")
-q.displayAllElementsInQueue()
+//q.displayAllElementsInQueue()
 
 class BracketValidator {
     init() {
