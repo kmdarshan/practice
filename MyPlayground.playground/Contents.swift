@@ -2,6 +2,66 @@
 
 import UIKit
 
+class RotationPoint {
+    var words = [
+        "engender",
+        "karpatka",
+        "othellolagkage",
+        "ptolemaic",
+        "retrograde",
+        "supplant",
+        "undulate",
+        "xenoepist",
+        "asymptote",  // <-- rotates here!
+        "babka",
+        "banoffee",
+        ]
+    
+    func findRotationPointON() {
+        var prevChar : Character
+        var nextChar : Character
+        var rotationIndex : Int = 0
+        if(words.count > 0) {
+            prevChar = words[0].first!
+            for i in 1...words.count-1 {
+                nextChar = words[i].first!
+                if(prevChar < nextChar) {
+                    rotationIndex = i
+                }
+            }
+        }
+        print("Rotation Index ", rotationIndex+1, words[rotationIndex+1])
+    }
+    
+    func findRotationPointLgN() {
+        var first = 0
+        var last = words.count-1
+        while ((last - first) > 1) {
+            if (words[first].first! > words[last].first!) {
+                var mid = (first + last) / 2
+                if(words[mid] > words[last]) {
+                    first = mid
+                } else {
+                    last = mid
+                }
+            } else {
+                print(first)
+            }
+        }
+        var index = -1
+        if(words[first].first! <= words[last].first!) {
+            index = first
+        } else {
+            index = last
+        }
+        print("final index ", index, words[index])
+    }
+}
+
+var rotate = RotationPoint()
+rotate.findRotationPointON()
+rotate.findRotationPointLgN()
+
 struct MakeIterator:IteratorProtocol {
     private var start : Int
     private var end : Int
@@ -31,7 +91,7 @@ struct MakeSequence: Sequence {
 
 let sequence = MakeSequence()
 for number in sequence {
-    print(number)
+    //print(number)
 }
 
 class QueueUsingStacks {
