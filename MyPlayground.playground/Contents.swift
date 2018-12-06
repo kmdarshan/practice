@@ -2,6 +2,42 @@
 
 import UIKit
 
+class GetMaximumYearPeopleLiving {
+    var array : [Int] = []
+    var maxyear = 2018
+    func addToArray(birthYear: Int, deathYear: Int) -> Void {
+        for year in birthYear...deathYear-1 {
+            array[year] = array[year] + 1
+        }
+    }
+    func printMaxYear() -> Int {
+        var maxYear : Int = 0
+        var maxSum : Int = 0
+        for sum in 0...array.count-1 {
+            if(array[sum] > maxSum) {
+                maxSum = array[sum]
+                maxYear = sum
+            }
+        }
+        return maxYear
+    }
+    init(maxyear: Int) {
+        self.maxyear = maxyear
+        self.array = Array(repeating: 0, count: self.maxyear)
+    }
+}
+
+var maxyear = GetMaximumYearPeopleLiving(maxyear: 2011)
+maxyear.addToArray(birthYear: 2000, deathYear: 2010)
+maxyear.addToArray(birthYear: 1975, deathYear: 2005)
+maxyear.addToArray(birthYear: 1975, deathYear: 2003)
+maxyear.addToArray(birthYear: 1803, deathYear: 1809)
+maxyear.addToArray(birthYear: 1750, deathYear: 1869)
+maxyear.addToArray(birthYear: 1840, deathYear: 1935)
+maxyear.addToArray(birthYear: 1803, deathYear: 1921)
+maxyear.addToArray(birthYear: 1894, deathYear: 1921)
+print(maxyear.printMaxYear())
+
 class RotationPoint {
     var words = [
         "engender",
@@ -30,7 +66,7 @@ class RotationPoint {
                 }
             }
         }
-        print("Rotation Index ", rotationIndex+1, words[rotationIndex+1])
+        //print("Rotation Index ", rotationIndex+1, words[rotationIndex+1])
     }
     
     func findRotationPointLgN() {
@@ -54,7 +90,7 @@ class RotationPoint {
         } else {
             index = last
         }
-        print("final index ", index, words[index])
+        //print("final index ", index, words[index])
     }
 }
 
