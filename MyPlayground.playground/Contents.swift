@@ -2,6 +2,30 @@
 
 import UIKit
 
+protocol BarkType {
+    func bark()
+}
+
+extension BarkType {
+    func bark() {
+        print("sniff")
+    }
+}
+class GermanSheperd : BarkType{
+    func bark() {
+        print("german bark")
+    }
+}
+
+class DobberMan : BarkType {
+    func bark() {
+        print("dobber bark")
+    }
+}
+
+let obj = GermanSheperd()
+obj.bark()
+
 class GetMaximumYearPeopleLiving {
     var array : [Int] = []
     var maxyear = 2018
