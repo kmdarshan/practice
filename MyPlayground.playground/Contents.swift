@@ -75,6 +75,33 @@ adjGraph.addToList(adjacencyList: adjacencyListC)
 adjGraph.addToList(adjacencyList: adjacencyListD)
 adjGraph.addToList(adjacencyList: adjacencyListE)
 
+protocol FileImport : AnyObject {
+    func helloFile();
+}
+
+class testFileImport {
+    weak var testDelegate : FileImport?
+    init() {
+        print("testFileimport")
+    }
+    func callDelegate() {
+        self.testDelegate?.helloFile()
+    }
+}
+
+class testFileImport2 : FileImport {
+    init() {
+        print("testFileimport2")
+    }
+    func helloFile() {
+        print("testFileImport2 delegate hit")
+    }
+}
+
+//var test = testFileImport()
+//var test2 = testFileImport2()
+//test.callDelegate()
+//test.testDelegate = test2
 
 protocol BarkType {
     func bark()
