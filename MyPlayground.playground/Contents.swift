@@ -2,6 +2,80 @@
 
 import UIKit
 
+public struct Vertex <T>{
+    var index : Int
+    var data : T
+}
+
+public struct Edge <T> {
+    var from: Vertex <T>
+    var to: Vertex <T>
+    var weight : Int
+}
+
+// this will contain the list of the vertexes
+public class AdjacencyList <T> {
+    var list : [Edge<T>] = []
+    var vertex : Vertex<T>
+    init(vertex: Vertex<T>) {
+        self.vertex = vertex
+    }
+    func addEdge(edge: Edge<T>) {
+        self.list.append(edge)
+    }
+}
+
+class AdjacencyGraph <T> {
+    var list : [AdjacencyList<T>] = []
+    func addToList(adjacencyList : AdjacencyList<T>) {
+        self.list.append(adjacencyList)
+    }
+}
+
+//    A ----> B ----> C
+//     \            /
+//      \       /
+//       \  /
+//        D
+//         |
+//         |
+//         E
+
+let a = Vertex(index: 1, data: 1)
+let b = Vertex(index: 2, data: 22)
+let c = Vertex(index: 3, data: 333)
+let d = Vertex(index: 4, data: 4444)
+let e = Vertex(index: 5, data: 55555)
+
+let a2b = Edge(from: a, to: b, weight: 0)
+let a2d = Edge(from: a, to: d, weight: 0)
+let b2c = Edge(from: b, to: c, weight: 0)
+let d2c = Edge(from: d, to: c, weight: 0)
+let d2e = Edge(from: d, to: e, weight: 0)
+
+var adjacencyListA = AdjacencyList(vertex: a)
+adjacencyListA.addEdge(edge: a2b)
+adjacencyListA.addEdge(edge: a2d)
+
+var adjacencyListB = AdjacencyList(vertex: b)
+adjacencyListB.addEdge(edge: b2c)
+
+var adjacencyListC = AdjacencyList(vertex: c)
+
+var adjacencyListD = AdjacencyList(vertex: d)
+adjacencyListD.addEdge(edge: d2c)
+adjacencyListD.addEdge(edge: d2e)
+
+var adjacencyListE = AdjacencyList(vertex: e)
+
+var adjGraph = AdjacencyGraph<Int> ()
+adjGraph.addToList(adjacencyList: adjacencyListA)
+adjGraph.addToList(adjacencyList: adjacencyListB)
+adjGraph.addToList(adjacencyList: adjacencyListC)
+adjGraph.addToList(adjacencyList: adjacencyListD)
+adjGraph.addToList(adjacencyList: adjacencyListE)
+
+
 protocol BarkType {
     func bark()
 }
