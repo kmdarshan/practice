@@ -23,6 +23,12 @@ public class AdjacencyList <T> {
     func addEdge(edge: Edge<T>) {
         self.list.append(edge)
     }
+    func getCount() -> Int {
+        return self.list.count
+    }
+    func getVertex() -> Vertex<T> {
+        return self.vertex
+    }
 }
 
 class AdjacencyGraph <T> {
@@ -74,6 +80,8 @@ adjGraph.addToList(adjacencyList: adjacencyListB)
 adjGraph.addToList(adjacencyList: adjacencyListC)
 adjGraph.addToList(adjacencyList: adjacencyListD)
 adjGraph.addToList(adjacencyList: adjacencyListE)
+
+adjGraph.graphColoringProblem()
 
 protocol FileImport : AnyObject {
     func helloFile();
