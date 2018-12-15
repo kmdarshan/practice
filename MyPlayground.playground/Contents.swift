@@ -2,6 +2,28 @@
 
 import UIKit
 
+// Dispatch queues
+func printZZ() {
+    print("ZZ")
+}
+func printXX() {
+    print("XX")
+}
+
+//let dispatchQueue = DispatchQueue(label: "SerialQ")
+let dispatchQueue = DispatchQueue(label: "SerialQ", qos: .default, attributes: .concurrent)
+dispatchQueue.async {
+    for _ in 1...5 {
+        //printXX()
+    }
+}
+
+dispatchQueue.async {
+    for _ in 1...5 {
+        //printZZ()
+    }
+}
+
 public struct Vertex <T>{
     var index : Int
     var data : T
@@ -35,6 +57,39 @@ class AdjacencyGraph <T> {
     var list : [AdjacencyList<T>] = []
     func addToList(adjacencyList : AdjacencyList<T>) {
         self.list.append(adjacencyList)
+    }
+    // https://www.geeksforgeeks.org/graph-coloring-set-2-greedy-algorithm/
+    func graphColoringProblem() {
+        var result = Array(repeating: -1, count: list.count)
+        result[0] = 0
+        var available = Array(repeating: true, count: list.count)
+        for i in 1...list.count-1 {
+            var vertexes = self.list[i]
+            var totalCount = vertexes.getCount()
+            if(vertexes.getCount() > 0) {
+                for v in 0...vertexes.getCount()-1 {
+                    var adjList = vertexes.getVertex()
+                    //print("from: ",i," list ",adjList.index)
+                    if(result[i] != -1) {
+                        available[result[i]] = false
+                    }
+                }
+            } else {
+                if(result[i] != -1) {
+                    available[result[i]] = false
+                }
+            }
+            var colorAssignment = 0
+            for color in 0...list.count-1 {
+                if(available[color]) {
+                    colorAssignment = color
+                    break;
+                }
+            }
+            //print(colorAssignment)
+            result[i] = colorAssignment
+            available = Array(repeating: true, count: list.count)
+        }
     }
 }
 
@@ -122,7 +177,7 @@ extension BarkType {
 }
 class GermanSheperd : BarkType{
     func bark() {
-        print("german bark")
+        //print("german bark")
     }
 }
 
@@ -477,3 +532,18 @@ func reverseWords(_ str : inout String) {
 var message = "cake pound steal"
 //reverseWords(&message)
 //print(message)
+
+// Singleton
+final class TestSingleton {
+    static let Shared = TestSingleton()
+    private init() {
+        
+    }
+    func testprint() {
+        print("testprint")
+    }
+}
+
+var testSingleton = TestSingleton.Shared
+testSingleton.testprint()
+
