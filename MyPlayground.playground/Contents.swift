@@ -547,3 +547,42 @@ final class TestSingleton {
 var testSingleton = TestSingleton.Shared
 testSingleton.testprint()
 
+var randomNumbers = [42, 12, 88, 62, 63, 56, 1, 77, 88, 97, 97, 20, 45, 91, 62, 2, 15, 31, 59, 5]
+func partition( arr : inout [Int], low: Int, high: Int) -> Int {
+    var i = low
+    var j = high
+    var key = arr[i]
+    var temp = 0
+    while true {
+        
+        while i < high && key >= arr[i] {
+            i = i+1
+        }
+        while key < arr[j] {
+            j=j-1
+        }
+        if(i<j) {
+            temp = arr[i]
+            arr[i] = arr[j]
+            arr[j] = temp
+        }
+        else
+        {
+            temp = arr[j]
+            arr[j] = arr[low]
+            arr[low] = temp
+            return j
+        }
+    }
+}
+
+func quicksort(arr : inout [Int], low: Int, high: Int) {
+    if(low < high) {
+        var pivot = partition(arr: &arr, low: low, high: high)
+        quicksort(arr: &arr, low: low, high: pivot-1)
+        quicksort(arr: &arr, low: pivot+1, high: high)
+    }
+}
+
+quicksort(arr: &randomNumbers, low: 0, high: randomNumbers.count-1)
+print(randomNumbers)
