@@ -547,7 +547,7 @@ final class TestSingleton {
 var testSingleton = TestSingleton.Shared
 testSingleton.testprint()
 
-var randomNumbers = [42, 12, 88, 62, 63, 56, 1, 77, 88, 97, 97, 20, 45, 91, 62, 2, 15, 31, 59, 5]
+
 func partition( arr : inout [Int], low: Int, high: Int) -> Int {
     var i = low
     var j = high
@@ -578,11 +578,39 @@ func partition( arr : inout [Int], low: Int, high: Int) -> Int {
 
 func quicksort(arr : inout [Int], low: Int, high: Int) {
     if(low < high) {
-        var pivot = partition(arr: &arr, low: low, high: high)
+        let pivot = partition(arr: &arr, low: low, high: high)
         quicksort(arr: &arr, low: low, high: pivot-1)
         quicksort(arr: &arr, low: pivot+1, high: high)
     }
 }
+var randomNumbers1 = [42, 12, 88, 62, 63, 56, 1, 77, 97]
+var randomNumbers2 = [97, 12, 20, 45, 91, 62, 2, 15, 31]
+quicksort(arr: &randomNumbers1, low: 0, high: randomNumbers1.count-1)
+quicksort(arr: &randomNumbers2, low: 0, high: randomNumbers2.count-1)
+print(randomNumbers1)
+print(randomNumbers2)
 
-quicksort(arr: &randomNumbers, low: 0, high: randomNumbers.count-1)
-print(randomNumbers)
+func printCommonNumbersIn(arr1: [Int], arr2: [Int]) {
+    var i = 0
+    var j = 0
+    
+    while i < arr1.count && j < arr2.count {
+        if (arr1[i] < arr2[j]) {
+            i = i+1;
+        }
+        else if (arr2[j] < arr1[i]) {
+            j = j+1;
+        }
+        else /* if arr1[i] == arr2[j] */
+        {
+            print(arr2[j])
+            i = i+1;
+            j = j+1;
+        }
+    }
+}
+printCommonNumbersIn(arr1: randomNumbers1, arr2: randomNumbers2)
+
+
+// linked list implementation in Swift
+
