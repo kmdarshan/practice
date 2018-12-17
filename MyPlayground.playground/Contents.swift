@@ -611,6 +611,72 @@ func printCommonNumbersIn(arr1: [Int], arr2: [Int]) {
 }
 printCommonNumbersIn(arr1: randomNumbers1, arr2: randomNumbers2)
 
+// https://www.geeksforgeeks.org/median-of-two-sorted-arrays/
+var a1 = [1, 12, 15, 26, 38]
+var a2 = [2, 13, 17, 30, 45]
 
-// linked list implementation in Swift
+// combine two sorted arrays
+func combineSortedArrays(a: [Int], b: [Int]) {
+    var c = Array(repeating: 0, count: a.count + b.count)
+    var i = 0
+    var cIndex = 0
+    let mid = a1.count
+    let high = a2.count
+    var j = 0
+    while i < mid && j < high {
+        if(a[i] < b[j]) {
+            c[cIndex] = a[i]
+            cIndex = cIndex + 1
+            i = i + 1
+        } else {
+            c[cIndex] = b[j]
+            cIndex = cIndex + 1
+            j = j + 1
+        }
+    }
+    while i<mid {
+        c[cIndex] = a[i]
+        cIndex = cIndex+1
+        i = i+1
+    }
+    while j<high {
+        c[cIndex] = b[j]
+        cIndex = cIndex+1
+        j = j+1
+    }
+    print(c)
+}
+
+combineSortedArrays(a: a1, b: a2)
+
+// linked list
+class LLNode {
+    var value = 0
+    var next: LLNode?
+    init(value: Int) {
+        self.value = value
+    }
+}
+
+func appendNode(headerNode: inout LLNode, value: Int) -> LLNode {
+    let tempNode = LLNode(value: value)
+    tempNode.next = headerNode
+    return tempNode
+}
+
+func displayLL(headerNode: LLNode?) {
+    var tempnode : LLNode? = headerNode
+    while tempnode != nil {
+        print(tempnode!.value)
+        tempnode = tempnode!.next
+    }
+}
+
+var headernode = LLNode(value: 100)
+headernode = appendNode(headerNode: &headernode, value: 99)
+headernode = appendNode(headerNode: &headernode, value: 299)
+headernode = appendNode(headerNode: &headernode, value: 199)
+var displayNode : LLNode = headernode
+displayLL(headerNode: displayNode)
+
 
