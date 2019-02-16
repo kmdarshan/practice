@@ -2,6 +2,26 @@
 
 import UIKit
 
+func reverseString(str: String) -> String {
+    if(str.count > 1)
+    {
+        var characterArray = [Character]()
+        for char in str.characters {
+            characterArray.insert(char, at: 0)
+        }
+        let reversedString = String(characterArray)
+        print(reversedString)
+        return reversedString
+    }
+    else
+    {
+        return str
+    }
+}
+
+reverseString(str: "darshan")
+
+/*
 // Dispatch queues
 func printZZ() {
     print("ZZ")
@@ -680,3 +700,4 @@ var displayNode : LLNode = headernode
 displayLL(headerNode: displayNode)
 
 
+*/
