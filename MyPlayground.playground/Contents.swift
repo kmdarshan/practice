@@ -2,6 +2,21 @@
 
 import UIKit
 
+func reverseStringInPlace(str: String) -> String {
+    var newArray = Array(str.characters)
+    let maxIndex = newArray.count - 1
+    for i in 0...maxIndex {
+        if i > maxIndex-1 {
+            break
+        }
+        (newArray[i], newArray[maxIndex-i]) = (newArray[maxIndex-i], newArray[i])
+    }
+    print(String(newArray))
+    return ""
+}
+
+reverseStringInPlace(str: "darshan")
+/*
 func reverseString(str: String) -> String {
     if(str.count > 1)
     {
@@ -21,7 +36,6 @@ func reverseString(str: String) -> String {
 
 reverseString(str: "darshan")
 
-/*
 // Dispatch queues
 func printZZ() {
     print("ZZ")
