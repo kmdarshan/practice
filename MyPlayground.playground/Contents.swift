@@ -1,9 +1,127 @@
 //: Playground - noun: a place where people can play
 
 import UIKit
+import Foundation
+
+/*
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Example:
+Given nums = [2, 7, 11, 15], target = 9,
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+*/
+
+func printTwoSum(_ nums: [Int], target : Int) -> [Int]{
+    for i in 0...nums.count-1 {
+        for j in i+1...nums.count-1 {
+            if(nums[i]+nums[j] == target) {
+                return [i, j]
+            }
+        }
+        }
+    return []
+}
+
+let nums = [3,2,4]
+let target = 6
+print(printTwoSum(nums, target: target))
+
+func testMaps() {
+    var dict : [String: Int] = [:]
+    dict["d"] = 1
+    for (codes,number) in dict {
+        //print(codes+" "+String(number))
+    }
+}
+
+testMaps()
+
+func stringManipulation() {
+    // test strings
+    let single = "Pok\u{00E9}mon"
+    let double = "Poke\u{0301}mon"
+    if(single == double)
+    {
+        //print("they are equal")
+    }
+    
+    let nssingle = single as NSString
+    nssingle.length // → 7
+    let nsdouble = double as NSString
+    nsdouble.length // → 8
+    if(nssingle == nsdouble)
+    {
+        //print("they are equal NS")
+    }
+    else
+    {
+        //print("they are not equal NS")
+    }
+    if(nssingle.compare(String(nsdouble)) == ComparisonResult.orderedSame)
+    {
+        //print("they are equal")
+    }
+    
+    var tarr = "darshan"
+    var miarr = Array(tarr)
+    for i in 0...miarr.count-1 {
+        //print(String(miarr[i]))
+    }
+    
+    var number = 987654321
+    while number > 10 {
+        let lastDigit = number % 10
+        //print(lastDigit)
+        number = number / 10
+    }
+    //print(number)
+    
+    var myname : String = "darshan"
+    for i in 0...myname.count-1 {
+        //print(String(i))
+    }
+    
+    let testArray = myname
+    let revArray = testArray.reversed()
+    for val in revArray {
+        //print(String(val))
+    }
+    
+    let stringToAct = "darshan"
+    for i in 0...stringToAct.count-1 {
+        //print(stringToAct.suffix(i))
+    }
+
+    let template = "<<<Hello>>>"
+    let indexStartOfText = template.index(template.startIndex, offsetBy: 3)
+    let indexEndOfText = template.index(template.endIndex, offsetBy: -3)
+    let substring1 = template[indexStartOfText...]
+    let substring2 = template[..<indexEndOfText]
+//    print(substring1)
+//    print(substring2)
+//    var myarray = myname.characters
+//    print("hello "+String.substring(to: 1))
+}
+
+stringManipulation()
+
+func modifyTwice(_ value: inout Int, hello: (inout Int) -> ()) {
+  hello(&value)
+  hello(&value)
+}
+
+func testCount() {
+  var count = 1
+    let temp = count
+  modifyTwice(&count) { $0 += temp }
+  //print(count)
+}
+
+//testCount()
 
 func reverseStringInPlace(str: String) -> String {
-    var newArray = Array(str.characters)
+    var newArray = Array(str)
     let maxIndex = newArray.count - 1
     for i in 0...maxIndex {
         if i > maxIndex-1 {
@@ -11,7 +129,7 @@ func reverseStringInPlace(str: String) -> String {
         }
         (newArray[i], newArray[maxIndex-i]) = (newArray[maxIndex-i], newArray[i])
     }
-    print(String(newArray))
+    //print(String(newArray))
     return ""
 }
 
