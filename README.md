@@ -7,4 +7,6 @@
 6. Combine Two Sorted Arrays <i>combineSortedArrays</i>
 7. Print Common Numbers In Arrays <i>printCommonNumbersIn</i>
 8. Validate the brackets <i>BracketValidator</i>
+9. Get the maximum people living in a particular year <i>GetMaximumYearPeopleLiving</i>
+10. Adjacency graph / Graph Coloring Problem <i>AdjacencyGraph</i> <i>graphColoringProblem</i>
 
