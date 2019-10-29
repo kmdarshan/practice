@@ -9,4 +9,5 @@
 8. Validate the brackets <i>BracketValidator</i>
 9. Get the maximum people living in a particular year <i>GetMaximumYearPeopleLiving</i>
 10. Adjacency graph / Graph Coloring Problem <i>AdjacencyGraph</i> <i>graphColoringProblem</i>
+11. Reverse Words in a Array <i>reverseWords</i>
 
