@@ -10,4 +10,5 @@
 9. Get the maximum people living in a particular year <i>GetMaximumYearPeopleLiving</i>
 10. Adjacency graph / Graph Coloring Problem <i>AdjacencyGraph</i> <i>graphColoringProblem</i>
 11. Reverse Words in a Array <i>reverseWords</i>
+12. Graph Traversal (Breadth First Search and Depth First Search)https://github.com/kmdarshan/practice/blob/master/graph_with_dfs_bfs.swift
 
