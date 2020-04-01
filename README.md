@@ -11,4 +11,5 @@
 10. Adjacency graph / Graph Coloring Problem <i>AdjacencyGraph</i> <i>graphColoringProblem</i>
 11. Reverse Words in a Array <i>reverseWords</i>
 12. Graph Traversal (Breadth First Search and Depth First Search) https://github.com/kmdarshan/practice/blob/master/graph_with_dfs_bfs.swift
+13. Check if all permutations of the word is palindrome or not https://github.com/kmdarshan/practice/blob/master/check_palindrome.swift
 
