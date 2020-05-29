@@ -3,7 +3,8 @@
 2. Reverse string in place <i>reverseStringInPlace</i>
 3. Print two sum in a array <i>printTwoSum</i>
 4. Implement Queue using Stacks <i>QueueUsingStacks</i>
-5. Binary Search Tree <i>BST</i>
+5. Binary Search Tree And Check For Validity <i>BST</i>
+https://github.com/kmdarshan/practice/blob/master/binarySearchTree.swift
 6. Combine Two Sorted Arrays <i>combineSortedArrays</i>
 7. Print Common Numbers In Arrays <i>printCommonNumbersIn</i>
 8. Validate the brackets <i>BracketValidator</i>
