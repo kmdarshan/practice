@@ -15,4 +15,6 @@ https://github.com/kmdarshan/practice/blob/master/binarySearchTree.swift
 13. Check if all permutations of the word is palindrome or not https://github.com/kmdarshan/practice/blob/master/check_palindrome.swift
 14. Implement a custom nsnotification center in swift https://redflowerinc.com/implementing-nsnotificationcenter-in-swift/
 15. Deleting a node from a binary search tree in swift https://github.com/kmdarshan/practice/blob/master/delete_from_a_binary_search_tree.swift
+16. Find if the binary tree is balanced https://github.com/kmdarshan/practice/blob/master/balanced_tree.swift
+
 
