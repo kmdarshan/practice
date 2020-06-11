@@ -5,7 +5,7 @@
 4. Implement Queue using Stacks <i>QueueUsingStacks</i>
 5. Binary Search Tree And Check For Validity <i>BST</i>
 https://github.com/kmdarshan/practice/blob/master/binarySearchTree.swift
-6. Combine Two Sorted Arrays <i>combineSortedArrays</i>
+6. Combine Two Sorted Arrays https://github.com/kmdarshan/practice/blob/master/combine_sorted_arrays.swift
 7. Print Common Numbers In Arrays <i>printCommonNumbersIn</i>
 8. Validate the brackets <i>BracketValidator</i>
 9. Get the maximum people living in a particular year <i>GetMaximumYearPeopleLiving</i>
