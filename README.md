@@ -10,7 +10,7 @@ https://github.com/kmdarshan/practice/blob/master/binarySearchTree.swift
 8. Validate the brackets <i>BracketValidator</i>
 9. Get the maximum people living in a particular year <i>GetMaximumYearPeopleLiving</i>
 10. Adjacency graph / Graph Coloring Problem <i>AdjacencyGraph</i> <i>graphColoringProblem</i>
-11. Reverse Words in a Array <i>reverseWords</i>
+11. Reverse Words in a Array https://github.com/kmdarshan/practice/blob/master/reverseWords.swift
 12. Graph Traversal (Breadth First Search and Depth First Search) https://github.com/kmdarshan/practice/blob/master/graph_with_dfs_bfs.swift
 13. Check if all permutations of the word is palindrome or not https://github.com/kmdarshan/practice/blob/master/check_palindrome.swift
 14. Implement a custom nsnotification center in swift https://redflowerinc.com/implementing-nsnotificationcenter-in-swift/
