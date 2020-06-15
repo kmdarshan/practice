@@ -18,5 +18,6 @@ https://github.com/kmdarshan/practice/blob/master/binarySearchTree.swift
 16. Find if the binary tree is balanced https://github.com/kmdarshan/practice/blob/master/balanced_tree.swift
 17. Find if a string is permutation palindrome https://github.com/kmdarshan/practice/blob/master/permutation_palindrome.swift
 18. Find shortest path between two nodes in a graph https://github.com/kmdarshan/practice/blob/master/bfs_search_graph_find_minimum_distance.swift
+19. Dynamic Programming - Knapsack problem https://github.com/kmdarshan/practice/blob/master/knapsack.swift
 
 
