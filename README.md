@@ -19,5 +19,6 @@ https://github.com/kmdarshan/practice/blob/master/binarySearchTree.swift
 17. Find if a string is permutation palindrome https://github.com/kmdarshan/practice/blob/master/permutation_palindrome.swift
 18. Find shortest path between two nodes in a graph https://github.com/kmdarshan/practice/blob/master/bfs_search_graph_find_minimum_distance.swift
 19. Dynamic Programming - Knapsack problem https://github.com/kmdarshan/practice/blob/master/knapsack.swift
+20. Second Largest Item in a binary search tree - https://github.com/kmdarshan/practice/blob/master/second_largest_item_in_binary_search_tree.swift
 
 
