@@ -1,3 +1,5 @@
+You can read more about swift here: https://www.redflowerinc.com
+
 <b>My implementations for commonly asked questions in interviews :</b> Method names are in italics.<br>
 1. Reverse a string <i>reverseString(str: String)</i>
 2. Reverse string in place <i>reverseStringInPlace</i>
