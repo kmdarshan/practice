@@ -18,3 +18,82 @@ Assume that: T consists of exactly five characters; the third one is ':'; the ot
 
 In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
 ```
+
+
+```
+for num in [1, 2, 3] {
+	print(num) // 1 2 3
+}
+
+
+for num in 1...3 {
+	print(num) // 1 2 3
+}
+
+for num in 1 {
+	print(num)
+}
+
+Error “​​For-in loop requires 'Int' to conform to 'Sequence'”
+
+protocol Sequence {
+	associatedtype Iterator: IteratorProtocol
+
+	func makeIterator() -> Iterator
+}
+
+
+protocol IteratorProtocol {
+	associatedtype Element
+
+	mutating func next() -> Element?
+}
+
+var iterator = headNode.makeIterator()
+ while let num = iterator.next() {
+  print(num)
+}
+
+
+
+Can you write a linked list type so that it supports for-in loop over its elements?
+
+struct Node<T>: Sequence {
+  var value: T
+  var next: Node?
+  init(_ value: T) {
+    self.value = value
+    self.next = nil
+  }
+  var linkedList: LinkedList?
+  func makeIterator() -> LinkedList {
+    linkedList = LinkedList(self)
+    return linkedList
+  }
+}
+
+class LinkedList<T>: IteratorProtocol {
+ 
+  var currentNode: Node?
+  func next() -> T? {
+    var tempNode = currentNode
+    currentNode = tempNode.next
+    return tempNode?.value
+  }
+}
+
+var node1 = Node<Int>(1)
+var node2 = Node<Int>(2)
+var node3 = Node<Int>(3)
+node1.next = node2
+node2.next = node3
+
+for val in node1 {
+  print(val)
+}
+
+struct Node<T> {
+let value: T
+let next: Node<T>? // Error: Value type 'Node<T>' cannot have a stored property that recursively contains it
+}
+```
